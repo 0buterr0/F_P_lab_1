@@ -1,0 +1,28 @@
+cabal-version:      2.4
+name:               dept-resources
+version:            0.1.0.0
+synopsis:           Information system "Department information resources" (Haskell + MySQL)
+author:             Lamash Maksym, IPS-42
+build-type:         Simple
+extra-doc-files:    README.md
+
+executable dept-resources
+  main-is:          Main.hs
+  hs-source-dirs:   app, src
+  other-modules:    Db
+                    Db.Value
+                    Entity
+                    Display
+                    Input
+                    Model
+                    Search
+                    Menu
+  build-depends:    base >=4.14 && <5
+                  , mysql-haskell >=1.1.6
+                  , io-streams
+                  , text
+                  , time
+  if os(windows)
+    build-depends:  Win32
+  default-language: Haskell2010
+  ghc-options:      -Wall
